@@ -1,12 +1,13 @@
-#property copyright "°¢Ë¹²®¸ñ"
-#property link      "°¢Ë¹²®¸ñ"
-extern datetime ¹Òµ¥±¾µØµçÄÔÊ±¼ä;
-extern int ¹Òµ¥¼Û¾àÀëµ±Ê±ÏÖ¼ÛµãÊı = 100;
-extern int ¹Òµ¥ÓĞĞ§·ÖÖÓÊı = 10;
-extern double ¹Òµ¥ÏÂµ¥Á¿;
-extern int ¹Òµ¥Ö¹ËğµãÊı = 70;
-extern int ¹Òµ¥Ö¹Ó¯µãÊı;
-extern int ¹Òµ¥³É½»ºóÒÆ¶¯Ö¹ËğµãÊı;
+//å› ä¸ºè¿˜ä¸å¤ªä¼šæ€ä¹ˆæ”¹è®¾ç½®ï¼Œæ‰€ä»¥å…ˆä¸Šè½¬ä¸ªcppåº”ä»˜ï¼Œå¯ä»¥æ˜ç¡®è¿™è¯­è¨€ä¸æ˜¯c++ï¼Œæ˜¯ç§ç±»cè¯­è¨€
+#property copyright "é˜¿æ–¯ä¼¯æ ¼"
+#property link      "é˜¿æ–¯ä¼¯æ ¼"
+extern datetime æŒ‚å•æœ¬åœ°ç”µè„‘æ—¶é—´;
+extern int æŒ‚å•ä»·è·ç¦»å½“æ—¶ç°ä»·ç‚¹æ•° = 100;
+extern int æŒ‚å•æœ‰æ•ˆåˆ†é’Ÿæ•° = 10;
+extern double æŒ‚å•ä¸‹å•é‡;
+extern int æŒ‚å•æ­¢æŸç‚¹æ•° = 70;
+extern int æŒ‚å•æ­¢ç›ˆç‚¹æ•°;
+extern int æŒ‚å•æˆäº¤åç§»åŠ¨æ­¢æŸç‚¹æ•°;
 extern int magic = 405215;
 datetime dangshi = 0;
 int sells = 0;
@@ -20,7 +21,7 @@ int ticket = 0;
 
 int init()
 {
-	DrawLabel("will1", "sell is better", 2, 13, "ËÎÌå", 9, Aqua, 0);
+	DrawLabel("will1", "sell is better", 2, 13, "å®‹ä½“", 9, Aqua, 0);
 	dangshi = TimeLocal();
 	return(0);
 }
@@ -32,10 +33,10 @@ int start()
 {
 
 
-	if (¹Òµ¥±¾µØµçÄÔÊ±¼ä<dangshi)
+	if (æŒ‚å•æœ¬åœ°ç”µè„‘æ—¶é—´<dangshi)
 		if (end == 0)
 		{
-			Alert("Õâ¸ö¹Òµ¥Ê±¼äÒÑ¾­¹ıÁË»¹ÔõÃ´¹Òµ¥");
+			Alert("è¿™ä¸ªæŒ‚å•æ—¶é—´å·²ç»è¿‡äº†è¿˜æ€ä¹ˆæŒ‚å•");
 			end = 1;
 		}
 
@@ -44,11 +45,11 @@ int start()
 
 
 
-	if (¹Òµ¥±¾µØµçÄÔÊ±¼ä <= TimeLocal())
+	if (æŒ‚å•æœ¬åœ°ç”µè„‘æ—¶é—´ <= TimeLocal())
 		if (end != 1)
 		{
-			sells = OrderSend(Symbol(), OP_SELLSTOP, ¹Òµ¥ÏÂµ¥Á¿, Bid - ¹Òµ¥¼Û¾àÀëµ±Ê±ÏÖ¼ÛµãÊı*Point, 70, Ask + ¹Òµ¥Ö¹ËğµãÊı*Point, 0, 0, magic, TimeLocal() + ¹Òµ¥ÓĞĞ§·ÖÖÓÊı * 60, White);
-			buys = OrderSend(Symbol(), OP_BUYSTOP, ¹Òµ¥ÏÂµ¥Á¿, Ask + ¹Òµ¥¼Û¾àÀëµ±Ê±ÏÖ¼ÛµãÊı*Point, 70, Ask - ¹Òµ¥Ö¹ËğµãÊı*Point, 0, 0, magic, TimeLocal() + ¹Òµ¥ÓĞĞ§·ÖÖÓÊı * 60, White);
+			sells = OrderSend(Symbol(), OP_SELLSTOP, æŒ‚å•ä¸‹å•é‡, Bid - æŒ‚å•ä»·è·ç¦»å½“æ—¶ç°ä»·ç‚¹æ•°*Point, 70, Ask + æŒ‚å•æ­¢æŸç‚¹æ•°*Point, 0, 0, magic, TimeLocal() + æŒ‚å•æœ‰æ•ˆåˆ†é’Ÿæ•° * 60, White);
+			buys = OrderSend(Symbol(), OP_BUYSTOP, æŒ‚å•ä¸‹å•é‡, Ask + æŒ‚å•ä»·è·ç¦»å½“æ—¶ç°ä»·ç‚¹æ•°*Point, 70, Ask - æŒ‚å•æ­¢æŸç‚¹æ•°*Point, 0, 0, magic, TimeLocal() + æŒ‚å•æœ‰æ•ˆåˆ†é’Ÿæ•° * 60, White);
 		}
 
 
@@ -67,27 +68,27 @@ int start()
 /*
 void yidong()
 {
-for(int i=0;i<OrdersTotal();i++)//ÒÆ¶¯Ö¹ËğÍ¨ÓÃ´úÂë,´Î´úÂë»á×Ô¶¯¼ì²âbuyºÍsellµ¥²¢¶ÔÆäÒÆ¶¯Ö¹Ëğ
+for(int i=0;i<OrdersTotal();i++)//ç§»åŠ¨æ­¢æŸé€šç”¨ä»£ç ,æ¬¡ä»£ç ä¼šè‡ªåŠ¨æ£€æµ‹buyå’Œsellå•å¹¶å¯¹å…¶ç§»åŠ¨æ­¢æŸ
 {
 if(OrderSelect(i,SELECT_BY_POS,MODE_TRADES)==true)
 {
 if(OrderType()==0 && OrderSymbol()==Symbol() && OrderMagicNumber()==magic)
 {
-if((Bid-OrderOpenPrice()) >=Point*¹Òµ¥³É½»ºóÒÆ¶¯Ö¹ËğµãÊı)
+if((Bid-OrderOpenPrice()) >=Point*æŒ‚å•æˆäº¤åç§»åŠ¨æ­¢æŸç‚¹æ•°)
 {
-if(OrderStopLoss()<(Bid-Point*¹Òµ¥³É½»ºóÒÆ¶¯Ö¹ËğµãÊı) || (OrderStopLoss()==0))
+if(OrderStopLoss()<(Bid-Point*æŒ‚å•æˆäº¤åç§»åŠ¨æ­¢æŸç‚¹æ•°) || (OrderStopLoss()==0))
 {
-OrderModify(OrderTicket(),OrderOpenPrice(),Bid-Point*¹Òµ¥³É½»ºóÒÆ¶¯Ö¹ËğµãÊı,0,0,Green);
+OrderModify(OrderTicket(),OrderOpenPrice(),Bid-Point*æŒ‚å•æˆäº¤åç§»åŠ¨æ­¢æŸç‚¹æ•°,0,0,Green);
 }
 }
 }
 if(OrderType()==1 && OrderSymbol()==Symbol() && OrderMagicNumber()==magic)
 {
-if((OrderOpenPrice()-Ask)>=(Point*¹Òµ¥³É½»ºóÒÆ¶¯Ö¹ËğµãÊı))
+if((OrderOpenPrice()-Ask)>=(Point*æŒ‚å•æˆäº¤åç§»åŠ¨æ­¢æŸç‚¹æ•°))
 {
-if((OrderStopLoss()>(Ask+Point*¹Òµ¥³É½»ºóÒÆ¶¯Ö¹ËğµãÊı)) || (OrderStopLoss()==0))
+if((OrderStopLoss()>(Ask+Point*æŒ‚å•æˆäº¤åç§»åŠ¨æ­¢æŸç‚¹æ•°)) || (OrderStopLoss()==0))
 {
-OrderModify(OrderTicket(),OrderOpenPrice(),Ask+Point*¹Òµ¥³É½»ºóÒÆ¶¯Ö¹ËğµãÊı,0,0,Red);
+OrderModify(OrderTicket(),OrderOpenPrice(),Ask+Point*æŒ‚å•æˆäº¤åç§»åŠ¨æ­¢æŸç‚¹æ•°,0,0,Red);
 }
 }
 }
